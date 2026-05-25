@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -414,13 +415,40 @@
     }
     .modal-glass {
       background: #111111e6;
-      max-width: 480px;
+      max-width: 520px;
       width: 90%;
       border-radius: 48px;
       padding: 2rem;
       text-align: center;
       border: 1px solid var(--gold-lux);
       box-shadow: 0 30px 40px rgba(0,0,0,0.6);
+    }
+    .class-buttons-modal {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .class-choice-btn {
+      background: rgba(212,175,55,0.15);
+      border: 1px solid var(--gold-lux);
+      padding: 1rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      color: var(--gold-lux);
+    }
+    .class-choice-btn:hover {
+      background: var(--gold-lux);
+      color: #0A0A0A;
+      transform: scale(1.02);
     }
 
     /* responsive */
@@ -442,6 +470,14 @@
       width: 100%;
       justify-content: center;
     }
+    .wa-link {
+      background: #25D36620;
+      border-color: #25D366;
+    }
+    .wa-link:hover {
+      background: #25D366;
+      color: #000;
+    }
   </style>
 </head>
 <body>
@@ -450,7 +486,6 @@
 <div class="navbar">
   <div class="nav-container">
     <a href="#" class="logo-wrapper" style="text-decoration: none;">
-      <!-- small logo emblem right where website title usually sits in navigation bar -->
       <div class="logo-emblem">
         <i class="fas fa-globe-africa"></i>
       </div>
@@ -533,7 +568,7 @@
           <span class="price">$20 <span style="font-size: 1rem;">/ month</span></span><br>
           Total Program: <strong>$60</strong>
         </div>
-        <button class="btn btn-card enroll-action" data-lang="Yoruba" data-price="60" data-link="https://africanunityclassroom.com/yoruba-live-access">Join Yoruba Class <i class="fas fa-arrow-right"></i></button>
+        <button class="btn btn-card enroll-action" data-lang="Yoruba">Join Yoruba Class <i class="fas fa-arrow-right"></i></button>
       </div>
 
       <!-- Swahili Card -->
@@ -551,23 +586,23 @@
           <span class="price">$20 <span style="font-size: 1rem;">/ month</span></span><br>
           Total Program: <strong>$60</strong>
         </div>
-        <button class="btn btn-card enroll-action" data-lang="Swahili" data-price="60" data-link="https://africanunityclassroom.com/swahili-live-access">Join Swahili Class <i class="fas fa-arrow-right"></i></button>
+        <button class="btn btn-card enroll-action" data-lang="Swahili">Join Swahili Class <i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SECURE PAYMENT & ENROLLMENT (REAL integration ready) -->
+<!-- SECURE PAYMENT & ENROLLMENT - REAL INTEGRATION -->
 <section id="payment-core" data-aos="fade-up">
   <div class="container">
     <h2 class="section-title-center" style="display: block; text-align: center;">Secure Enrollment & Payment</h2>
     <p style="text-align: center; max-width: 720px; margin: 1rem auto; font-size: 1.05rem;">
-      Once payment is completed, students will instantly receive access to their selected class, schedules, and live class links.
+      Once payment is completed, you'll get instant access to your class WhatsApp group.
     </p>
     <div class="steps-flex">
       <div class="step-card"><div class="step-number">1</div><h3>Choose language</h3><p>Yoruba or Swahili</p></div>
-      <div class="step-card"><div class="step-number">2</div><h3>Complete payment</h3><p>via Flutterwave, Paystack or Stripe</p></div>
-      <div class="step-card"><div class="step-number">3</div><h3>Instant class access</h3><p>Receive link & materials</p></div>
+      <div class="step-card"><div class="step-number">2</div><h3>Complete payment</h3><p>via Flutterwave or Paystack</p></div>
+      <div class="step-card"><div class="step-number">3</div><h3>Instant class access</h3><p>WhatsApp group link appears</p></div>
     </div>
 
     <div style="background: #0C0C0C; border-radius: 56px; padding: 2rem; margin: 1.5rem 0 2rem; border: 1px solid #2c2c2c;">
@@ -578,11 +613,12 @@
       </div>
       <div id="selectedLangDisplay" style="text-align: center; font-weight: 500; margin-bottom: 1rem; color: var(--gold-glow); min-height: 3rem;"></div>
       <div class="payment-providers">
-        <button id="flutterwavePayBtn" class="provider-btn"><i class="fas fa-credit-card"></i> Flutterwave</button>
-        <button id="paystackPayBtn" class="provider-btn"><i class="fas fa-wallet"></i> Paystack</button>
-        <button id="stripePayBtn" class="provider-btn"><i class="fab fa-stripe"></i> Stripe</button>
+        <!-- Flutterwave: redirects to the specific payment link -->
+        <button id="flutterwavePayBtn" class="provider-btn"><i class="fas fa-credit-card"></i> Pay with Flutterwave</button>
+        <!-- Paystack: redirects to the specific payment link -->
+        <button id="paystackPayBtn" class="provider-btn"><i class="fas fa-wallet"></i> Pay with Paystack</button>
       </div>
-      <p style="font-size: 0.75rem; text-align: center; color: #aaa;">🔐 Test mode simulation • Real integration ready (replace keys). After payment, class link appears instantly.</p>
+      <p style="font-size: 0.75rem; text-align: center; color: #aaa;">🔐 Click a payment method, complete payment, then choose your class to get WhatsApp link.</p>
       <div id="paymentStatusMsg" style="margin-top: 1rem; text-align: center;"></div>
     </div>
   </div>
@@ -592,7 +628,6 @@
 <footer>
   <div class="container">
     <div style="display: flex; justify-content: center; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
-      <!-- small emblem in footer too -->
       <div style="background: linear-gradient(145deg, var(--gold-lux), #B8860B); width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 1.5rem;">
         <i class="fas fa-globe-africa"></i>
       </div>
@@ -608,15 +643,22 @@
   </div>
 </footer>
 
-<!-- MODAL for class access -->
+<!-- MODAL for class access (after payment confirmation) -->
 <div id="accessModal" class="modal-overlay">
   <div class="modal-glass">
     <i class="fas fa-check-circle" style="font-size: 3.5rem; color: var(--gold-lux); margin-bottom: 1rem;"></i>
-    <h3>✅ Enrollment Successful!</h3>
-    <p id="modalLangText" style="margin: 1rem 0;">You are now enrolled in <strong id="modalLangNameSpan"></strong>.</p>
-    <p>🔗 Your exclusive class access link:</p>
-    <p><a href="#" id="modalAccessLink" target="_blank" style="color: var(--gold-lux); word-break: break-all;">Open Classroom</a></p>
-    <button id="closeModalBtnGlobal" class="btn" style="background: var(--gold-lux); margin-top: 1.5rem;">Start Learning <i class="fas fa-arrow-right"></i></button>
+    <h3>✅ Payment Successful!</h3>
+    <p style="margin: 0.5rem 0;">Choose your class to join immediately:</p>
+    <div class="class-buttons-modal">
+      <a href="https://chat.whatsapp.com/I3eTs45GN2HGSxYAurd9lV" target="_blank" class="class-choice-btn" id="yorubaClassLinkModal">
+        <i class="fab fa-whatsapp"></i> Join Yoruba Class WhatsApp Group
+      </a>
+      <a href="https://chat.whatsapp.com/LcVEzhcpWbZ3LZrOlc1OJG" target="_blank" class="class-choice-btn" id="swahiliClassLinkModal">
+        <i class="fab fa-whatsapp"></i> Join Swahili Class WhatsApp Group
+      </a>
+    </div>
+    <p style="font-size: 0.8rem; margin-top: 1rem; color: #aaa;">🔗 Links are active — click to join your class community!</p>
+    <button id="closeModalBtnGlobal" class="btn" style="background: var(--gold-lux); margin-top: 1rem;">Close <i class="fas fa-check"></i></button>
   </div>
 </div>
 
@@ -625,21 +667,22 @@
   AOS.init({ duration: 800, once: true, offset: 80 });
   
   let selectedLanguage = null;
-  const langLinksMap = {
-    Yoruba: "https://africanunityclassroom.com/yoruba-live-access/join?session=premium",
-    Swahili: "https://africanunityclassroom.com/swahili-live-access/join?session=premium"
-  };
+  
+  // REAL PAYMENT LINKS PROVIDED BY CLIENT
+  const FLUTTERWAVE_PAYMENT_LINK = "https://flutterwave.com/pay/znqu0ebxvc5n";
+  const PAYSTACK_PAYMENT_LINK = "https://paystack.com/buy/african-unity-language-school-enrollment-xaqhlj";
+  
+  // WhatsApp group links (for display after payment)
+  const YORUBA_WHATSAPP = "https://chat.whatsapp.com/I3eTs45GN2HGSxYAurd9lV";
+  const SWAHILI_WHATSAPP = "https://chat.whatsapp.com/LcVEzhcpWbZ3LZrOlc1OJG";
 
   const selectYoruba = document.getElementById('selectYorubaPayBtn');
   const selectSwahili = document.getElementById('selectSwahiliPayBtn');
   const selectedDisplayDiv = document.getElementById('selectedLangDisplay');
   const flutterwaveBtn = document.getElementById('flutterwavePayBtn');
   const paystackBtn = document.getElementById('paystackPayBtn');
-  const stripeBtn = document.getElementById('stripePayBtn');
   const paymentStatusSpan = document.getElementById('paymentStatusMsg');
   const modal = document.getElementById('accessModal');
-  const modalLangSpan = document.getElementById('modalLangNameSpan');
-  const modalAccessLink = document.getElementById('modalAccessLink');
   const closeModalBtn = document.getElementById('closeModalBtnGlobal');
   const cardEnrollBtns = document.querySelectorAll('.enroll-action');
   
@@ -652,31 +695,50 @@
   selectYoruba.addEventListener('click', () => setLanguage('Yoruba'));
   selectSwahili.addEventListener('click', () => setLanguage('Swahili'));
 
-  function processPayment(provider) {
+  // Process payment: redirect to actual payment link, then after returning we simulate confirmation
+  // Because Flutterwave/Paystack redirect away, we store selection in sessionStorage and show modal on return.
+  function redirectToPayment(paymentUrl) {
     if (!selectedLanguage) {
       paymentStatusSpan.innerHTML = '<span style="color: #E0A96D;">⚠️ Please select a language (Yoruba or Swahili) first.</span>';
       return;
     }
-    const classLink = langLinksMap[selectedLanguage];
-    if (!classLink) {
-      paymentStatusSpan.innerHTML = '<span style="color: red;">Error: class link missing.</span>';
-      return;
-    }
-    paymentStatusSpan.innerHTML = `<i class="fas fa-spinner fa-pulse"></i> Processing ${provider} payment... (simulated secure)`;
-    setTimeout(() => {
-      paymentStatusSpan.innerHTML = `<span style="color: #D4AF37;">✅ ${provider} payment successful! You have been enrolled in ${selectedLanguage}. Check your class link below.</span>`;
-      modalLangSpan.innerText = selectedLanguage;
-      modalAccessLink.href = classLink;
-      modalAccessLink.innerText = classLink;
-      modal.style.visibility = 'visible';
-      modal.style.opacity = '1';
-      localStorage.setItem('enrolled_student', selectedLanguage);
-    }, 1000);
+    // Save selected language and flag that payment was initiated
+    sessionStorage.setItem('pendingPaymentLang', selectedLanguage);
+    sessionStorage.setItem('paymentInitiated', 'true');
+    // Redirect to actual payment gateway
+    window.location.href = paymentUrl;
   }
 
-  flutterwaveBtn.addEventListener('click', () => processPayment('Flutterwave'));
-  paystackBtn.addEventListener('click', () => processPayment('Paystack'));
-  stripeBtn.addEventListener('click', () => processPayment('Stripe'));
+  flutterwaveBtn.addEventListener('click', () => redirectToPayment(FLUTTERWAVE_PAYMENT_LINK));
+  paystackBtn.addEventListener('click', () => redirectToPayment(PAYSTACK_PAYMENT_LINK));
+
+  // When user returns from payment gateway (redirect back to this page), check if payment was likely completed
+  // Since we can't verify automatically without webhook, we show modal with class links.
+  // The student will click the class they paid for. The business owner will manually verify via payment dashboard.
+  function checkPaymentReturn() {
+    const pendingLang = sessionStorage.getItem('pendingPaymentLang');
+    const paymentStarted = sessionStorage.getItem('paymentInitiated');
+    if (paymentStarted === 'true' && pendingLang) {
+      // Clear the flags so it doesn't show on every refresh
+      sessionStorage.removeItem('paymentInitiated');
+      sessionStorage.removeItem('pendingPaymentLang');
+      // Show modal with both class options (student chooses after payment)
+      modal.style.visibility = 'visible';
+      modal.style.opacity = '1';
+      paymentStatusSpan.innerHTML = `<span style="color: #D4AF37;">✅ You have returned after payment. Click below to join your class.</span>`;
+      selectedDisplayDiv.innerHTML = `✨ Payment processed. Select your class below ✨`;
+    }
+  }
+
+  // Also handle card buttons (Join Yoruba/Swahili) - set language and scroll
+  cardEnrollBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const lang = btn.getAttribute('data-lang');
+      setLanguage(lang);
+      document.getElementById('payment-core').scrollIntoView({ behavior: 'smooth' });
+      paymentStatusSpan.innerHTML = `<span style="color: var(--gold-lux);">✔️ ${lang} selected. Complete payment via Flutterwave or Paystack above.</span>`;
+    });
+  });
 
   function closeModalFunc() {
     modal.style.visibility = 'hidden';
@@ -684,14 +746,11 @@
   }
   closeModalBtn.addEventListener('click', closeModalFunc);
   modal.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
-
-  cardEnrollBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const lang = btn.getAttribute('data-lang');
-      setLanguage(lang);
-      document.getElementById('payment-core').scrollIntoView({ behavior: 'smooth' });
-      paymentStatusSpan.innerHTML = `<span style="color: var(--gold-lux);">✔️ ${lang} selected. Complete payment to unlock class link instantly.</span>`;
-    });
+  
+  // Check on page load if user returned from payment
+  window.addEventListener('DOMContentLoaded', () => {
+    checkPaymentReturn();
+    // Also ensure that any manual trigger shows the modal with class links
   });
 
   const styleAnim = document.createElement('style');
